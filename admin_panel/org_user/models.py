@@ -14,6 +14,8 @@ class OrgUser(models.Model):
     password = models.CharField(max_length=255)
     role = models.CharField(max_length=255, choices=role_choices)
     created_on = models.DateTimeField(auto_now_add=True)
+    is_active = models.BooleanField(default=True)
+
 
     def __str__(self):
         return f"{self.username} - {self.role}"
