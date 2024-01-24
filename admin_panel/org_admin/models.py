@@ -8,9 +8,7 @@ class OrgAdmin(models.Model):
     email = models.EmailField(unique=True)
     username = models.CharField(unique=True)
     password = models.CharField(max_length=255)
+    created_on = models.DateTimeField(auto_now_add=True)
 
-class Services(models.Model):
-    organization = models.ForeignKey(OrgAdmin, on_delete=models.CASCADE)
-    uuid = models.UUIDField(primary_key=True)
-    service_name = models.CharField(max_length=255)
-    tag_name = models.CharField(max_length=255)
+    def __str__(self):
+        return self.username
